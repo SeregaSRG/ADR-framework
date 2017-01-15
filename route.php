@@ -6,7 +6,6 @@ class Route {
         if($routes[1] == 'api') {
             $action = $routes[2];
         } else {
-            //TODO: Ошибка адреса - это не api
             Route::ErrorPage404();
         }
 
@@ -28,6 +27,7 @@ class Route {
         }
 
         $action = new $action_name;
+        $domain = new $domains_name;
     }
 
     function ErrorPage404()
