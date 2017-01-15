@@ -5,7 +5,14 @@ class Action {
     public $responder;
 
     function __construct() {
-        $this->domain = new Domain();
-        $this->responder = new Responder();
     }
+    
+    static function loadDomain($name) {
+        if( file_exists(HOME_DIR.'/application/domains/'.$name.'.php') ) {
+            require_once HOME_DIR.'/application/domains/'.$name.'.php';
+        } else {
+            //TODO исключение для подключения домена
+        }
+    }
+    
 }

@@ -1,39 +1,50 @@
 <?php
 class Route {
     static function start() {
-        $routes = explode('/', $_SERVER['REQUEST_URI']);
+        $method = NULL;
+        $action = NULL;
+
+        $addressWithoutGet = explode('?',htmlspecialchars($_SERVER['REQUEST_URI'],ENT_QUOTES));
+        $routes = explode('/', htmlspecialchars($addressWithoutGet[0]),ENT_QUOTES);
 
         if($routes[1] == 'api') {
-            $action = $routes[2];
+            $actionandmethod = explode('.',htmlspecialchars($routes[2],ENT_QUOTES));
+            $action = mb_convert_case($actionandmethod[0], MB_CASE_TITLE, "UTF-8");
+            $method = $actionandmethod[1];
         } else {
             Route::ErrorPage404();
         }
 
         // добавляем префиксы
-        $domains_name = 'Domain_'.$action;
-        $action_name = 'Action_'.$action;
+        $action_class_name = 'Action_'.$action;
 
         // подцепляем файлы
-        if( file_exists('application/actions/'.$action_name.'.php') ) {
-            require_once 'application/actions/'.$action_name.'.php';
+        if( file_exists(HOME_DIR.'/application/actions/'.$action.'.php') ) {
+            require_once HOME_DIR.'/application/actions/'.$action.'.php';
         } else {
             Route::ErrorPage404();
         }
 
-        if( file_exists('application/domains/'.$domains_name.'.php') ) {
-            require_once 'application/domains/'.$domains_name.'.php';
+        if( file_exists(HOME_DIR.'/application/domains/'.$action.'.php') ) {
+            require_once HOME_DIR.'/application/domains/'.$action.'.php';
         } else {
             Route::ErrorPage404();
         }
 
-        $action = new $action_name;
+        if( file_exists(HOME_DIR.'application/responder/'.$action.'.php') ) {
+            require_once HOME_DIR.'application/responder/'.$action.'.php';
+        }
+        
+        // Вызываем action и method, переданные в запросе.
+        $action = new $action_class_name;
+        $action->$method();
     }
 
-    function ErrorPage404()
-    {
+    static function ErrorPage404() {
         $host = 'http://'.$_SERVER['HTTP_HOST'].'/';
         header('HTTP/1.1 404 Not Found');
         header("Status: 404 Not Found");
         header('Location:'.$host.'404');
+        exit();
     }
 }
