@@ -27,7 +27,6 @@ class Route {
         }
 
         $action = new $action_name;
-        $domain = new $domains_name;
     }
 
     function ErrorPage404()
