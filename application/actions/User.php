@@ -8,9 +8,7 @@ class Action_User extends Action {
 
     function login() {
         $this->domain->login();
-        if(  ) {
-            Responder::send('');
-        }
+        
     }
 
     function register() {

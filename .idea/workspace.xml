@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="223f9730-bd3a-4cb5-bb5b-10b52ab0cf52" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.htaccess" afterPath="$PROJECT_DIR$/.htaccess" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/core/action.php" afterPath="$PROJECT_DIR$/application/core/action.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/core/domain.php" afterPath="$PROJECT_DIR$/application/core/domain.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/core/responder.php" afterPath="$PROJECT_DIR$/application/core/responder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.php" afterPath="$PROJECT_DIR$/config.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/actions/User.php" afterPath="$PROJECT_DIR$/application/actions/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/domains/User.php" afterPath="$PROJECT_DIR$/application/domains/User.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/route.php" afterPath="$PROJECT_DIR$/route.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libraries/token.php" afterPath="$PROJECT_DIR$/libraries/token.php" />
     </list>
     <ignored path="ADR-framework.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,18 +30,28 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="action.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="action.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/core/action.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
               <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/actions/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -63,11 +67,38 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/domains/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="454">
+              <caret line="27" column="109" selection-start-line="27" selection-start-column="109" selection-end-line="27" selection-end-column="109" />
+              <folding>
+                <marker date="1484518228544" expanded="true" signature="1295:1343" placeholder="SELECT * FRO... users" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="token.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/libraries/token.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+              <folding>
+                <marker date="1484518324388" expanded="true" signature="221:277" placeholder="UPDATE token... " />
+                <marker date="1484518324388" expanded="true" signature="318:411" placeholder="INSERT INTO `tokens`... " />
+                <marker date="1484518324388" expanded="true" signature="526:618" placeholder="SELECT * FRO... tokens" />
+                <marker date="1484518324388" expanded="true" signature="931:1008" placeholder="SELECT * FRO... tokens" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../Transfer/core/api/client/class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+            <state relative-caret-position="680">
+              <caret line="40" column="47" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="47" />
               <folding>
                 <marker date="1484252261000" expanded="true" signature="184:232" placeholder="SELECT * FRO... clients" />
                 <marker date="1484252261000" expanded="true" signature="1189:1237" placeholder="SELECT * FRO... clients" />
@@ -95,8 +126,10 @@
         <option value="$PROJECT_DIR$/application/core/action.php" />
         <option value="$PROJECT_DIR$/libraries/parameters.php" />
         <option value="$PROJECT_DIR$/application/actions/User.php" />
-        <option value="$PROJECT_DIR$/application/domains/User.php" />
+        <option value="$PROJECT_DIR$/libraries/user_session.php" />
         <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/application/domains/User.php" />
+        <option value="$PROJECT_DIR$/libraries/token.php" />
       </list>
     </option>
   </component>
@@ -302,18 +335,18 @@
       <workItem from="1484476570795" duration="5498000" />
       <workItem from="1484486322977" duration="3349000" />
       <workItem from="1484493106915" duration="9659000" />
-      <workItem from="1484512542811" duration="91000" />
+      <workItem from="1484512542811" duration="5775000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18597000" />
+    <option name="totallyTimeSpent" value="24281000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969433" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -484,7 +517,6 @@
     <entry file="file://$PROJECT_DIR$/../Easy Work/Mobile/u/www/js/AJAX.js" />
     <entry file="file://$PROJECT_DIR$/../Transfer/core/libraries/response.php" />
     <entry file="file://$PROJECT_DIR$/../Transfer/core/libraries/base.php" />
-    <entry file="file://$PROJECT_DIR$/../Transfer/core/libraries/token.php" />
     <entry file="file://$PROJECT_DIR$/route.php" />
     <entry file="file://$PROJECT_DIR$/../../EW/core/index.php" />
     <entry file="file://$PROJECT_DIR$/application/core/domain.php">
@@ -526,44 +558,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/actions/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/domains/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Transfer/core/api/client/class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
-          <folding>
-            <marker date="1484252261000" expanded="true" signature="184:232" placeholder="SELECT * FRO... clients" />
-            <marker date="1484252261000" expanded="true" signature="1189:1237" placeholder="SELECT * FRO... clients" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Transfer/core/api/client/methods/login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libraries/user_session.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -573,6 +579,69 @@
         <state relative-caret-position="187">
           <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Transfer/core/api/client/class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="40" column="47" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="47" />
+          <folding>
+            <marker date="1484252261000" expanded="true" signature="184:232" placeholder="SELECT * FRO... clients" />
+            <marker date="1484252261000" expanded="true" signature="1189:1237" placeholder="SELECT * FRO... clients" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/actions/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/domains/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="27" column="109" selection-start-line="27" selection-start-column="109" selection-end-line="27" selection-end-column="109" />
+          <folding>
+            <marker date="1484518228544" expanded="true" signature="1295:1343" placeholder="SELECT * FRO... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Transfer/core/libraries/token.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="96" />
+          <folding>
+            <marker date="1483551631453" expanded="true" signature="219:275" placeholder="UPDATE token... " />
+            <marker date="1483551631453" expanded="true" signature="316:409" placeholder="INSERT INTO `tokens`... " />
+            <marker date="1483551631453" expanded="true" signature="524:616" placeholder="SELECT * FRO... tokens" />
+            <marker date="1483551631453" expanded="true" signature="929:1006" placeholder="SELECT * FRO... tokens" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libraries/token.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+          <folding>
+            <marker date="1484518324388" expanded="true" signature="221:277" placeholder="UPDATE token... " />
+            <marker date="1484518324388" expanded="true" signature="318:411" placeholder="INSERT INTO `tokens`... " />
+            <marker date="1484518324388" expanded="true" signature="526:618" placeholder="SELECT * FRO... tokens" />
+            <marker date="1484518324388" expanded="true" signature="931:1008" placeholder="SELECT * FRO... tokens" />
+          </folding>
         </state>
       </provider>
     </entry>

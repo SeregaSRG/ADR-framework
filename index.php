@@ -14,6 +14,7 @@ require_once HOME_DIR.'/libraries/database.php';
 require_once HOME_DIR.'/libraries/token.php';
 require_once HOME_DIR.'/libraries/parameters.php';
 
+$mysqli = Database::connect();
+
 Route::start();
 
-$mysqli = Database::connect();

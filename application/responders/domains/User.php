@@ -1,8 +1,6 @@
 <?php 
 class Domain_User {
-
-    //http://transport-core.microfox.ru/api/user.login?phone=89094294989&password=123
-
+    
     public $isCorrectPassword;
     public $user;
 
@@ -15,17 +13,12 @@ class Domain_User {
         $this->isCorrectPassword = $this->checkPassword($password);
 
         if ($this->isCorrectPassword) {
-            $_SESSION['now_user'] = [
-                'token' => Token::generate(),
-                'ip'    => $_SERVER['REMOTE_ADDR'],
-                'id'    => $this->user->id
-            ];
-            /*
             $_SESSION['now_user']->token    = Token::generate();
             $_SESSION['now_user']->ip       = $_SERVER['REMOTE_ADDR'];
             $_SESSION['now_user']->id       = $this->user->id;
-            */
-            Token::insert($_SESSION['now_user'][id], $_SESSION['now_user'][token],$_SESSION['now_user'][ip]);
+
+            Token::insert($_SESSION['now_user']->id, $_SESSION['now_user']->token,$_SESSION['now_user']->ip);
+
         }
     }
 
@@ -40,7 +33,7 @@ class Domain_User {
     function getUserInfo($phone) {
         global $mysqli;
 
-        $userInfoQuery = $mysqli->query("SELECT * FROM `clients` WHERE phone='".$phone."'");
+        $userInfoQuery = $mysqli->query("SELECT * FROM `users` WHERE phone='".$phone."'");
 
         if (!$userInfoQuery->num_rows){
             // TODO
