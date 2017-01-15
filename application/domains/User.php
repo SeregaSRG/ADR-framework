@@ -20,11 +20,6 @@ class Domain_User {
                 'ip'    => $_SERVER['REMOTE_ADDR'],
                 'id'    => $this->user->id
             ];
-            /*
-            $_SESSION['now_user']->token    = Token::generate();
-            $_SESSION['now_user']->ip       = $_SERVER['REMOTE_ADDR'];
-            $_SESSION['now_user']->id       = $this->user->id;
-            */
             Token::insert($_SESSION['now_user'][id], $_SESSION['now_user'][token],$_SESSION['now_user'][ip]);
         }
     }

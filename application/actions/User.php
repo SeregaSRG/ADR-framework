@@ -8,11 +8,13 @@ class Action_User extends Action {
 
     function login() {
         $this->domain->login();
-        
+        Responder::send([
+            'token' => $_SESSION['now_user'][token]
+        ]);
     }
 
     function register() {
-
+        
     }
 }
 

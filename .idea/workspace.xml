@@ -4,8 +4,6 @@
     <list default="true" id="223f9730-bd3a-4cb5-bb5b-10b52ab0cf52" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/actions/User.php" afterPath="$PROJECT_DIR$/application/actions/User.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/domains/User.php" afterPath="$PROJECT_DIR$/application/domains/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libraries/token.php" afterPath="$PROJECT_DIR$/libraries/token.php" />
     </list>
     <ignored path="ADR-framework.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,21 +45,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/actions/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+            <state relative-caret-position="272">
+              <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Transfer/core/api/client/methods/login.php">
+      <file leaf-file-name="responder.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/core/responder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+            <state relative-caret-position="119">
+              <caret line="7" column="30" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -70,16 +68,16 @@
       <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/domains/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="27" column="109" selection-start-line="27" selection-start-column="109" selection-end-line="27" selection-end-column="109" />
+            <state relative-caret-position="369">
+              <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
               <folding>
-                <marker date="1484518228544" expanded="true" signature="1295:1343" placeholder="SELECT * FRO... users" />
+                <marker date="1484518505253" expanded="true" signature="1066:1114" placeholder="SELECT * FRO... users" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="token.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="token.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/libraries/token.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
@@ -125,11 +123,11 @@
         <option value="$PROJECT_DIR$/libraries/route.php" />
         <option value="$PROJECT_DIR$/application/core/action.php" />
         <option value="$PROJECT_DIR$/libraries/parameters.php" />
-        <option value="$PROJECT_DIR$/application/actions/User.php" />
         <option value="$PROJECT_DIR$/libraries/user_session.php" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/application/domains/User.php" />
         <option value="$PROJECT_DIR$/libraries/token.php" />
+        <option value="$PROJECT_DIR$/application/domains/User.php" />
+        <option value="$PROJECT_DIR$/application/actions/User.php" />
       </list>
     </option>
   </component>
@@ -335,12 +333,12 @@
       <workItem from="1484476570795" duration="5498000" />
       <workItem from="1484486322977" duration="3349000" />
       <workItem from="1484493106915" duration="9659000" />
-      <workItem from="1484512542811" duration="5775000" />
+      <workItem from="1484512542811" duration="5967000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24281000" />
+    <option name="totallyTimeSpent" value="24473000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
@@ -473,6 +471,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
           <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -489,6 +488,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
           <caret line="1" column="49" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -543,26 +543,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/core/responder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/libraries/route.php" />
     <entry file="file://$PROJECT_DIR$/libraries/parameters.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="7" column="56" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Transfer/core/api/client/methods/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -601,24 +586,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/actions/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/domains/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="27" column="109" selection-start-line="27" selection-start-column="109" selection-end-line="27" selection-end-column="109" />
-          <folding>
-            <marker date="1484518228544" expanded="true" signature="1295:1343" placeholder="SELECT * FRO... users" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Transfer/core/libraries/token.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -642,6 +609,40 @@
             <marker date="1484518324388" expanded="true" signature="526:618" placeholder="SELECT * FRO... tokens" />
             <marker date="1484518324388" expanded="true" signature="931:1008" placeholder="SELECT * FRO... tokens" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Transfer/core/api/client/methods/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/domains/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+          <folding>
+            <marker date="1484518505253" expanded="true" signature="1066:1114" placeholder="SELECT * FRO... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/core/responder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="30" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/actions/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
