@@ -8,9 +8,14 @@ class Action_User extends Action {
 
     function login() {
         $this->domain->login();
-        Responder::send([
-            'token' => $_SESSION['now_user'][token]
-        ]);
+        if ($this->domain->isCorrectPassword) {
+            Responder::send([
+                'token' => $_SESSION['now_user'][token]
+            ]);
+        } else {
+            Responder::error('202');
+        }
+        
     }
 
     function register() {
