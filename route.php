@@ -7,13 +7,22 @@ class Route {
         $addressWithoutGet = explode('?',htmlspecialchars($_SERVER['REQUEST_URI'],ENT_QUOTES));
         $routes = explode('/', htmlspecialchars($addressWithoutGet[0]),ENT_QUOTES);
 
-        if($routes[1] == 'api') {
-            $actionandmethod = explode('.',htmlspecialchars($routes[2],ENT_QUOTES));
-            $action = mb_convert_case($actionandmethod[0], MB_CASE_TITLE, "UTF-8");
-            $method = $actionandmethod[1];
-        } else {
-            Route::ErrorPage404();
+
+        switch($routes[1]){
+            case 'api':
+                $actionandmethod = explode('.',htmlspecialchars($routes[2],ENT_QUOTES));
+                $action = mb_convert_case($actionandmethod[0], MB_CASE_TITLE, "UTF-8");
+                $method = $actionandmethod[1];
+                break;
+
+            case 'test':
+                break;
+
+            default:
+                Route::ErrorPage404();
+                break;
         }
+
 
         // добавляем префиксы
         $action_class_name = 'Action_'.$action;
@@ -22,13 +31,13 @@ class Route {
         if( file_exists(HOME_DIR.'/application/actions/'.$action.'.php') ) {
             require_once HOME_DIR.'/application/actions/'.$action.'.php';
         } else {
-            Route::ErrorPage404();
+            //Route::ErrorPage404();
         }
 
         if( file_exists(HOME_DIR.'/application/domains/'.$action.'.php') ) {
             require_once HOME_DIR.'/application/domains/'.$action.'.php';
         } else {
-            Route::ErrorPage404();
+            //Route::ErrorPage404();
         }
 
         if( file_exists(HOME_DIR.'application/responder/'.$action.'.php') ) {
@@ -36,8 +45,10 @@ class Route {
         }
         
         // Вызываем action и method, переданные в запросе.
-        $action = new $action_class_name;
-        $action->$method();
+        if ( file_exists(HOME_DIR.'/application/actions/'.$action.'.php') ) {
+            $action = new $action_class_name;
+            $action->$method();
+        }
     }
 
     static function ErrorPage404() {

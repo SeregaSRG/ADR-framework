@@ -5,9 +5,19 @@ class Token {
     }
 
     static function insert($id, $token, $ip) {
-        global $mysqli;
-        $QueryById = $mysqli->query("UPDATE tokens SET `closed`='1' WHERE `user_id`='".$id."'");
-        $insertToken=$mysqli->query("INSERT INTO `tokens` (`user_id`,`token`,`user_ip`) VALUES ('".$id."', '".$token."','".$ip."')");
+        global $pdo;
+        
+        $QueryById = $pdo->prepare("UPDATE tokens SET `closed`='1' WHERE `user_id`= :id");
+        $QueryById->execute([
+            ':id' => $id
+        ]);
+         
+        $insertToken = $pdo->prepare("INSERT INTO `tokens` (`user_id`,`token`,`user_ip`) VALUES (:id, :token,:ip)");
+        $insertToken->execute([
+            ':id' => $id,
+            ':token' => $token,
+            ':ip' => $ip
+        ]);
     }
     
     static function getId ($token){
