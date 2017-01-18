@@ -62,27 +62,33 @@ class Domain_User {
     }
 
     function checkPassword($password) {
+        /*
         if ( hash_equals( $this->user->password, crypt($password, SALT)) ) {
             return TRUE;
         } else {
             return FALSE;
-        }
+        }*/
     }
 
     function getUserInfo($phone) {
         global $pdo;
 
-        $userInfoQuery = $pdo->prepare("SELECT * FROM `clients` WHERE phone = :phone");
+        $userInfoQuery = $pdo->prepare("SELECT * FROM `clients`");
+        $userInfoQuery->fetch( PDO::FETCH_BOUND );
+        echo $userInfoQuery->rowCount();
+        print_r($userInfoQuery);
+
+        /*
         $userInfoQuery->execute([
             ':phone' => $phone
         ]);
-
+*/
         if (!$userInfoQuery->rowCount()){
             // TODO
             Responder::error('202');
             exit();
         }
 
-        return $userInfoQuery->fetch_object();
+        return $userInfoQuery;
     }
 }

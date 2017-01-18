@@ -14,9 +14,7 @@ class Database{
     static function connect() {
         $dsn = "mysql:host=".MYSQL_HOSTNAME.";dbname=".MYSQL_DBNAME;
         $opt = array(
-            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-            PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
+            PDO::MYSQL_ATTR_INIT_COMMAND => "SET CHARACTER SET utf8"
         );
         return $pdo = new PDO($dsn, MYSQL_USERNAME, MYSQL_PASSWORD, $opt);
     }

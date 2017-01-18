@@ -17,13 +17,12 @@ class Domain_User {
             $_SESSION['now_user']->ip       = $_SERVER['REMOTE_ADDR'];
             $_SESSION['now_user']->id       = $this->user->id;
 
-            Token::insert($_SESSION['now_user']->id, $_SESSION['now_user']->token,$_SESSION['now_user']->ip);
-
+            Token::insert($_SESSION['now_user']->id, $_SESSION['now_user']->token, $_SESSION['now_user']->ip);
         }
     }
 
     function checkPassword($password) {
-        if ( hash_equals( $this->user->password, crypt($password, SALT)) ) {
+        if ( hash_equals($this->user->password, crypt($password, SALT)) ) {
             return TRUE;
         } else {
             return FALSE;
