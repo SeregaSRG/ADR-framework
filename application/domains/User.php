@@ -3,9 +3,55 @@ class Domain_User {
 
     //http://transport-core.microfox.ru/api/user.login?phone=89094294989&password=123
 
-    public $isRegistered;
+    public $isRegistered = FALSE;
+    public $registeredCode;
     public $isCorrectPassword = FALSE;
     public $user;
+
+    function register() {
+        global $pdo;
+
+        $name			= Parameters::Get('name');
+        $surname		= Parameters::Get('surname');
+        $password		= Parameters::Get('password');
+        $email			= Parameters::Get('email');
+        $phone			= Parameters::Get('phone');
+        $password_hash	= crypt($password, SALT);
+
+        $isUserQuery = $pdo->prepare(
+            "SELECT id FROM `clients` WHERE phone = :phone"
+        );
+        $isUserQuery->execute([
+            ':phone' => $phone
+        ]);
+
+        if (!$isUserQuery->rowCount()){
+            //$sql = $mysqli->query("	INSERT INTO `clients` (`name`, `surname`, `email`, `phone`, `password`) VALUES ('".$name."', '".$surname."', '".$email."', '".$phone."', '".$user_pass_hash."')");
+
+            //http://transport-core.microfox.ru/api/user.register?phone=89094294989&password=123
+
+            $addUserQuery = $pdo->prepare(
+                "INSERT INTO `clients` (`name`, `surname`, `email`, `phone`, `password`) VALUES (:name, :surname, :email, :phone, :password_hash)"
+            );
+            $addUserQuery->execute([
+                ':name'          => $name,
+                ':surname'       => $surname,
+                ':email'         => $email,
+                ':phone'         => $phone,
+                ':password_hash' => $password_hash
+            ]);
+            if ($addUserQuery){
+                $this->isRegistered = TRUE;
+                $this->registeredCode = 200;
+            } else {
+                $this->isRegistered = TRUE;
+                $this->registeredCode = -2;
+            }
+        } else {
+            $this->isRegistered = FALSE;
+            $this->registeredCode = 201;
+        }
+    }
 
     function login() {
         $password   = Parameters::Get('password');
@@ -28,42 +74,6 @@ class Domain_User {
         } else {
 
         }
-    }
-
-    function register() {
-        global $pdo;
-
-        $name			= Parameters::Get('name');
-        $surname		= Parameters::Get('surname');
-        $password		= Parameters::Get('password');
-        $email			= Parameters::Get('email');
-        $phone			= Parameters::Get('phone');
-        $password_hash	= crypt($password, SALT);
-
-        //$sql = $mysqli->query("SELECT id FROM `clients` where phone='".$phone."'");
-        $pdoQuery = $pdo->prepare("SELECT id FROM `clients` WHERE phone = :phone");
-        $pdoQuery->execute([
-            ':phone' => $phone
-        ]);
-
-        if (!$pdoQuery -> num_rows){
-            //$sql = $mysqli->query("	INSERT INTO `clients` (`name`, `surname`, `email`, `phone`, `password`) VALUES ('".$name."', '".$surname."', '".$email."', '".$phone."', '".$user_pass_hash."')");
-            if ($pdoQuery){
-                /*echo "Вы успешно зарегистрированы";
-                $headers = "From: webmaster@easywork.su\r\nContent-type: text/html; charset=utf-8\r\n";
-                //$page = file_get_contents("http://easywork.su/register/mail.html");
-                $page = "Awesome Page";
-                $text = str_replace("%rep%", crypt($user_pass_hash, $salt)."&t=c", $page);
-                $text = str_replace("Да будет красивый текст!", "Здравствуйте, ".$name, $text);
-                mail($email,"Подтверждение регистрации в сервисе Easy Work",$text, $headers);*/
-                Response::send(array('code'=>'200'));
-            } else {
-                echo Response::error('-2');
-            }
-        } else {
-            echo Response::error('201');
-        }
-
     }
 
     function checkPassword($password) {
