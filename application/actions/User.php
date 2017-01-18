@@ -6,6 +6,20 @@ class Action_User extends Action {
         $this->responder = new Responder();
     }
 
+    function register() {
+        $this->domain->register();
+
+        if ($this->domain->isRegistered) {
+            Responder::send([
+                'code' => $this->domain->registeredCode
+            ]);
+        } else {
+            Responder::error(
+                $this->domain->registeredCode
+            );
+        }
+    }
+
     function login() {
         $this->domain->login();
 
@@ -19,11 +33,5 @@ class Action_User extends Action {
         } else {
             Responder::error('202');
         }
-        
-    }
-
-    function register() {
-        
     }
 }
- 
