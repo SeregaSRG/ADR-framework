@@ -8,9 +8,13 @@ class Action_User extends Action {
 
     function login() {
         $this->domain->login();
+
         if ($this->domain->isCorrectPassword) {
             Responder::send([
-                'token' => $_SESSION['now_user'][token]
+                'token' => $_SESSION['now_user'][token],
+                'name'  => $this->domain->user->name,
+                'surname'  => $this->domain->user->surname,
+                'email'  => $this->domain->user->email
             ]);
         } else {
             Responder::error('202');
@@ -22,6 +26,4 @@ class Action_User extends Action {
         
     }
 }
-
-//$qwe = Post::get('qwe');
  

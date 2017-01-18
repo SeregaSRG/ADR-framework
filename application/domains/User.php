@@ -4,7 +4,7 @@ class Domain_User {
     //http://transport-core.microfox.ru/api/user.login?phone=89094294989&password=123
 
     public $isRegistered;
-    public $isCorrectPassword;
+    public $isCorrectPassword = FALSE;
     public $user;
 
     function login() {
@@ -12,16 +12,21 @@ class Domain_User {
         $phone      = Parameters::Get('phone');
 
         $this->user = $this->getUserInfo($phone);
-        
-        $this->isCorrectPassword = $this->checkPassword($password);
 
-        if ($this->isCorrectPassword) {
-            $_SESSION['now_user'] = [
-                'token' => Token::generate(),
-                'ip'    => $_SERVER['REMOTE_ADDR'],
-                'id'    => $this->user->id
-            ];
-            Token::insert($_SESSION['now_user'][id], $_SESSION['now_user'][token],$_SESSION['now_user'][ip]);
+        if ($this->user) {
+            $this->isCorrectPassword = $this->checkPassword($password);
+
+            if ($this->isCorrectPassword) {
+                $_SESSION['now_user'] = [
+                    'id'         => $this->user->id,
+                    'token'      => Token::generate(),
+                    'ip'         => $_SERVER['REMOTE_ADDR'],
+                    'user_agent' => $_SERVER['HTTP_USER_AGENT']
+                ];
+                Token::insert($_SESSION['now_user'][id], $_SESSION['now_user'][token], $_SESSION['now_user'][ip], $_SESSION['now_user'][user_agent]);
+            }
+        } else {
+
         }
     }
 
@@ -62,33 +67,29 @@ class Domain_User {
     }
 
     function checkPassword($password) {
-        /*
         if ( hash_equals( $this->user->password, crypt($password, SALT)) ) {
             return TRUE;
         } else {
             return FALSE;
-        }*/
+        }
     }
 
     function getUserInfo($phone) {
         global $pdo;
 
-        $userInfoQuery = $pdo->prepare("SELECT * FROM `clients`");
-        $userInfoQuery->fetch( PDO::FETCH_BOUND );
-        echo $userInfoQuery->rowCount();
-        print_r($userInfoQuery);
+        $userInfoQuery = $pdo->prepare(
+            "SELECT * FROM `clients` WHERE phone = :phone"
+        );
 
-        /*
         $userInfoQuery->execute([
             ':phone' => $phone
         ]);
-*/
-        if (!$userInfoQuery->rowCount()){
-            // TODO
-            Responder::error('202');
-            exit();
-        }
 
-        return $userInfoQuery;
+        // Возвращает объект или false
+        if ($userInfoQuery->rowCount()){
+            return $userInfoQuery->fetch();
+        } else {
+            return FALSE;
+        }
     }
 }

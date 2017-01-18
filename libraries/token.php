@@ -4,7 +4,7 @@ class Token {
         return hash('sha512', uniqid(rand(), true));
     }
 
-    static function insert($id, $token, $ip) {
+    static function insert($id, $token, $ip, $userAgent) {
         global $pdo;
         
         $QueryById = $pdo->prepare("UPDATE tokens SET `closed`='1' WHERE `user_id`= :id");
@@ -12,11 +12,12 @@ class Token {
             ':id' => $id
         ]);
          
-        $insertToken = $pdo->prepare("INSERT INTO `tokens` (`user_id`,`token`,`user_ip`) VALUES (:id, :token,:ip)");
+        $insertToken = $pdo->prepare("INSERT INTO `tokens` (`user_id`,`token`,`user_ip`, `user_agent`) VALUES (:id, :token, :ip, :user_agent)");
         $insertToken->execute([
             ':id' => $id,
             ':token' => $token,
-            ':ip' => $ip
+            ':ip' => $ip,
+            ':user_agent' => $userAgent
         ]);
     }
     
