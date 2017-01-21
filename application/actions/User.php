@@ -17,6 +17,7 @@ class Action_User extends Action {
             Responder::error(
                 $this->domain->registeredCode
             );
+            session_destroy();
         }
     }
 
@@ -34,6 +35,7 @@ class Action_User extends Action {
             Responder::error(
                 $this->domain->loggedCode
             );
+            session_destroy();
         }
     }
 
@@ -48,6 +50,7 @@ class Action_User extends Action {
             Responder::error([
                 'code' => $this->domain->checkedCode
             ]);
+            session_destroy();
         }
     }
 }

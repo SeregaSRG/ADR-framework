@@ -36,8 +36,13 @@ class Token {
         ]);
 
         if ($QueryByToken) {
-            if ($QueryByToken->fetch()->user_agent == $userAgent) {
-                return TRUE;
+            if ($QueryByToken->rowCount()) {
+                if ($QueryByToken->fetch()->user_agent == $userAgent) {
+                    return TRUE;
+                } else {
+                    Token::close($token);
+                    return FALSE;
+                }
             } else {
                 return FALSE;
             }
@@ -46,6 +51,17 @@ class Token {
             print_r($QueryByToken->errorInfo());
             return FALSE;
         }
+    }
+
+    static function close($token) {
+        global $pdo;
+
+        $QueryById = $pdo->prepare(
+            "UPDATE tokens SET `closed`='1' WHERE `token`= :token"
+        );
+        $QueryById->execute([
+            ':token' => $token
+        ]);
     }
     /*
     static function getId ($token){

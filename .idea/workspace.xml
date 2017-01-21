@@ -4,7 +4,7 @@
     <list default="true" id="223f9730-bd3a-4cb5-bb5b-10b52ab0cf52" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/actions/User.php" afterPath="$PROJECT_DIR$/application/actions/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/domains/User.php" afterPath="$PROJECT_DIR$/application/domains/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/documentation/responseCode.txt" afterPath="$PROJECT_DIR$/documentation/responseCode.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libraries/token.php" afterPath="$PROJECT_DIR$/libraries/token.php" />
     </list>
     <ignored path="ADR-framework.iws" />
@@ -40,8 +40,8 @@
       <file leaf-file-name="User.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/actions/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="692">
-              <caret line="49" column="15" selection-start-line="49" selection-start-column="15" selection-end-line="49" selection-end-column="15" />
+            <state relative-caret-position="709">
+              <caret line="52" column="30" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -50,7 +50,7 @@
       <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/domains/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
+            <state relative-caret-position="782">
               <caret line="91" column="8" selection-start-line="91" selection-start-column="8" selection-end-line="91" selection-end-column="8" />
               <folding>
                 <marker date="1485003197160" expanded="true" signature="779:824" placeholder="SELECT id FR... clients" />
@@ -69,14 +69,15 @@
       <file leaf-file-name="token.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/libraries/token.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="782">
-              <caret line="46" column="25" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
+            <state relative-caret-position="510">
+              <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
               <folding>
-                <marker date="1485002874170" expanded="true" signature="251:302" placeholder="UPDATE token... " />
-                <marker date="1485002874170" expanded="true" signature="443:546" placeholder="INSERT INTO `tokens`... " />
-                <marker date="1485002874170" expanded="true" signature="861:936" placeholder="SELECT `user... tokens" />
-                <marker date="1485002874170" expanded="true" signature="1481:1573" placeholder="SELECT * FRO... tokens" />
-                <marker date="1485002874170" expanded="true" signature="1886:1963" placeholder="SELECT * FRO... tokens" />
+                <marker date="1485003741369" expanded="true" signature="251:302" placeholder="UPDATE token... " />
+                <marker date="1485003741369" expanded="true" signature="443:546" placeholder="INSERT INTO `tokens`... " />
+                <marker date="1485003741369" expanded="true" signature="861:936" placeholder="SELECT `user... tokens" />
+                <marker date="1485003741369" expanded="true" signature="1654:1706" placeholder="UPDATE token... " />
+                <marker date="1485003741369" expanded="true" signature="1905:1997" placeholder="SELECT * FRO... tokens" />
+                <marker date="1485003741369" expanded="true" signature="2310:2387" placeholder="SELECT * FRO... tokens" />
               </folding>
             </state>
           </provider>
@@ -103,8 +104,8 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/libraries/database.php" />
         <option value="$PROJECT_DIR$/application/core/responder.php" />
-        <option value="$PROJECT_DIR$/libraries/token.php" />
         <option value="$PROJECT_DIR$/application/domains/User.php" />
+        <option value="$PROJECT_DIR$/libraries/token.php" />
         <option value="$PROJECT_DIR$/application/actions/User.php" />
       </list>
     </option>
@@ -266,10 +267,10 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches">
         <subPane />
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -332,12 +333,13 @@
       <workItem from="1484656593981" duration="145000" />
       <workItem from="1484730411800" duration="7872000" />
       <workItem from="1484991832793" duration="599000" />
-      <workItem from="1485000773947" duration="2418000" />
+      <workItem from="1485000773947" duration="2512000" />
+      <workItem from="1485003502794" duration="579000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47015000" />
+    <option name="totallyTimeSpent" value="47688000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1692" height="1026" extended-state="0" />
@@ -436,11 +438,12 @@
         <state relative-caret-position="17">
           <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
           <folding>
-            <marker date="1485002874170" expanded="true" signature="251:302" placeholder="UPDATE token... " />
-            <marker date="1485002874170" expanded="true" signature="443:546" placeholder="INSERT INTO `tokens`... " />
-            <marker date="1485002874170" expanded="true" signature="861:936" placeholder="SELECT `user... tokens" />
-            <marker date="1485002874170" expanded="true" signature="1481:1573" placeholder="SELECT * FRO... tokens" />
-            <marker date="1485002874170" expanded="true" signature="1886:1963" placeholder="SELECT * FRO... tokens" />
+            <marker date="1485003741369" expanded="true" signature="251:302" placeholder="UPDATE token... " />
+            <marker date="1485003741369" expanded="true" signature="443:546" placeholder="INSERT INTO `tokens`... " />
+            <marker date="1485003741369" expanded="true" signature="861:936" placeholder="SELECT `user... tokens" />
+            <marker date="1485003741369" expanded="true" signature="1654:1706" placeholder="UPDATE token... " />
+            <marker date="1485003741369" expanded="true" signature="1905:1997" placeholder="SELECT * FRO... tokens" />
+            <marker date="1485003741369" expanded="true" signature="2310:2387" placeholder="SELECT * FRO... tokens" />
           </folding>
         </state>
       </provider>
@@ -493,7 +496,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
           <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -650,7 +652,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="60" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -658,7 +659,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -680,21 +680,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/libraries/token.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="46" column="25" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
+        <state relative-caret-position="510">
+          <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
           <folding>
-            <marker date="1485002874170" expanded="true" signature="251:302" placeholder="UPDATE token... " />
-            <marker date="1485002874170" expanded="true" signature="443:546" placeholder="INSERT INTO `tokens`... " />
-            <marker date="1485002874170" expanded="true" signature="861:936" placeholder="SELECT `user... tokens" />
-            <marker date="1485002874170" expanded="true" signature="1481:1573" placeholder="SELECT * FRO... tokens" />
-            <marker date="1485002874170" expanded="true" signature="1886:1963" placeholder="SELECT * FRO... tokens" />
+            <marker date="1485003741369" expanded="true" signature="251:302" placeholder="UPDATE token... " />
+            <marker date="1485003741369" expanded="true" signature="443:546" placeholder="INSERT INTO `tokens`... " />
+            <marker date="1485003741369" expanded="true" signature="861:936" placeholder="SELECT `user... tokens" />
+            <marker date="1485003741369" expanded="true" signature="1654:1706" placeholder="UPDATE token... " />
+            <marker date="1485003741369" expanded="true" signature="1905:1997" placeholder="SELECT * FRO... tokens" />
+            <marker date="1485003741369" expanded="true" signature="2310:2387" placeholder="SELECT * FRO... tokens" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/domains/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
+        <state relative-caret-position="782">
           <caret line="91" column="8" selection-start-line="91" selection-start-column="8" selection-end-line="91" selection-end-column="8" />
           <folding>
             <marker date="1485003197160" expanded="true" signature="779:824" placeholder="SELECT id FR... clients" />
@@ -711,8 +712,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/actions/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="692">
-          <caret line="49" column="15" selection-start-line="49" selection-start-column="15" selection-end-line="49" selection-end-column="15" />
+        <state relative-caret-position="709">
+          <caret line="52" column="30" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="30" />
           <folding />
         </state>
       </provider>
