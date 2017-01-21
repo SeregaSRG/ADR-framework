@@ -19,6 +19,8 @@ class Action_User extends Action {
             );
             session_destroy();
         }
+
+        exit();
     }
 
     function login() {
@@ -37,6 +39,8 @@ class Action_User extends Action {
             );
             session_destroy();
         }
+
+        exit();
     }
 
     function checkLogin() {
@@ -52,5 +56,7 @@ class Action_User extends Action {
             ]);
             session_destroy();
         }
+
+        exit();
     }
 }
