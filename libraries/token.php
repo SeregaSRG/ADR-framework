@@ -7,12 +7,16 @@ class Token {
     static function insert($id, $token, $ip, $userAgent) {
         global $pdo;
         
-        $QueryById = $pdo->prepare("UPDATE tokens SET `closed`='1' WHERE `user_id`= :id");
+        $QueryById = $pdo->prepare(
+            "UPDATE tokens SET `closed`='1' WHERE `user_id`= :id"
+        );
         $QueryById->execute([
             ':id' => $id
         ]);
          
-        $insertToken = $pdo->prepare("INSERT INTO `tokens` (`user_id`,`token`,`user_ip`, `user_agent`) VALUES (:id, :token, :ip, :user_agent)");
+        $insertToken = $pdo->prepare(
+            "INSERT INTO `tokens` (`user_id`,`token`,`user_ip`, `user_agent`) VALUES (:id, :token, :ip, :user_agent)"
+        );
         $insertToken->execute([
             ':id' => $id,
             ':token' => $token,
@@ -20,7 +24,30 @@ class Token {
             ':user_agent' => $userAgent
         ]);
     }
-    
+
+    static function checkToken($token, $userAgent) {
+        global $pdo;
+
+        $QueryByToken = $pdo->prepare(
+            "SELECT `user_agent` FROM `tokens` WHERE `token` = :token AND `closed` = '0'"
+        );
+        $QueryByToken->execute([
+            ':token' => $token
+        ]);
+
+        if ($QueryByToken) {
+            if ($QueryByToken->fetch()->user_agent == $userAgent) {
+                return TRUE;
+            } else {
+                return FALSE;
+            }
+        } else {
+            // TODO Обработка ошибок базы данных
+            print_r($QueryByToken->errorInfo());
+            return FALSE;
+        }
+    }
+    /*
     static function getId ($token){
         global $mysqli;
         $QueryByToken = $mysqli->query("SELECT * FROM `tokens` WHERE token='".htmlspecialchars($token, ENT_QUOTES)."' AND closed='0'");
@@ -41,5 +68,5 @@ class Token {
         }
         $byTokenObj = $QueryByToken->fetch_object();
         return $byTokenObj->closed;
-    }
+    }*/
 }

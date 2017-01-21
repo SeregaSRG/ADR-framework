@@ -2,11 +2,19 @@
 class Domain_User {
 
     //http://transport-core.microfox.ru/api/user.login?phone=89094294989&password=123
+    //http://transport-core.microfox.ru/api/user.register?phone=89094294989&password=123
+    public $user;
 
     public $isRegistered = FALSE;
     public $registeredCode;
-    public $isCorrectPassword = FALSE;
-    public $user;
+
+
+    public $isLogged = FALSE;
+    public $loggedCode;
+
+    public $isChecked = FALSE;
+    public $checkedCode;
+
 
     function register() {
         global $pdo;
@@ -26,10 +34,6 @@ class Domain_User {
         ]);
 
         if (!$isUserQuery->rowCount()){
-            //$sql = $mysqli->query("	INSERT INTO `clients` (`name`, `surname`, `email`, `phone`, `password`) VALUES ('".$name."', '".$surname."', '".$email."', '".$phone."', '".$user_pass_hash."')");
-
-            //http://transport-core.microfox.ru/api/user.register?phone=89094294989&password=123
-
             $addUserQuery = $pdo->prepare(
                 "INSERT INTO `clients` (`name`, `surname`, `email`, `phone`, `password`) VALUES (:name, :surname, :email, :phone, :password_hash)"
             );
@@ -42,14 +46,14 @@ class Domain_User {
             ]);
             if ($addUserQuery){
                 $this->isRegistered = TRUE;
-                $this->registeredCode = 200;
+                $this->registeredCode = 100;
             } else {
                 $this->isRegistered = TRUE;
                 $this->registeredCode = -2;
             }
         } else {
             $this->isRegistered = FALSE;
-            $this->registeredCode = 201;
+            $this->registeredCode = 101;
         }
     }
 
@@ -60,19 +64,37 @@ class Domain_User {
         $this->user = $this->getUserInfo($phone);
 
         if ($this->user) {
-            $this->isCorrectPassword = $this->checkPassword($password);
-
-            if ($this->isCorrectPassword) {
+            if ( $this->checkPassword($password) ) {
                 $_SESSION['now_user'] = [
                     'id'         => $this->user->id,
                     'token'      => Token::generate(),
                     'ip'         => $_SERVER['REMOTE_ADDR'],
                     'user_agent' => $_SERVER['HTTP_USER_AGENT']
                 ];
+
                 Token::insert($_SESSION['now_user'][id], $_SESSION['now_user'][token], $_SESSION['now_user'][ip], $_SESSION['now_user'][user_agent]);
+
+                $this->isLogged = TRUE;
+                $this->loginCode = 200;
+            } else {
+                $this->isLogged = FALSE;
+                $this->loginCode = 202;
             }
         } else {
+            $this->isLogged = FALSE;
+            $this->loginCode = 201;
+        }
+    }
 
+    function checkLogin() {
+        $token = Parameters::Get('token');
+        
+        $this->isChecked = Token::checkToken($token, $_SERVER['HTTP_USER_AGENT']);
+
+        if ($this->isChecked) {
+            $this->checkedCode = '300';
+        } else {
+            $this->checkedCode = '301';
         }
     }
 

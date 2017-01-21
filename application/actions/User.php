@@ -23,7 +23,7 @@ class Action_User extends Action {
     function login() {
         $this->domain->login();
 
-        if ($this->domain->isCorrectPassword) {
+        if ($this->domain->isLogged) {
             Responder::send([
                 'token' => $_SESSION['now_user'][token],
                 'name'  => $this->domain->user->name,
@@ -31,7 +31,23 @@ class Action_User extends Action {
                 'email'  => $this->domain->user->email
             ]);
         } else {
-            Responder::error('202');
+            Responder::error(
+                $this->domain->loggedCode
+            );
+        }
+    }
+
+    function checkLogin() {
+        $this->domain->checkLogin();
+            
+        if ($this->domain->isChecked) {
+            Responder::send([
+                'code' => $this->domain->checkedCode
+            ]);
+        } else {
+            Responder::error([
+                'code' => $this->domain->checkedCode
+            ]);
         }
     }
 }
