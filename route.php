@@ -15,7 +15,9 @@ class Route {
                 $method = $actionandmethod[1];
                 break;
 
-            case 'test':
+            case 'start':
+                require_once HOME_DIR.'/first_start.php';
+                exit();
                 break;
 
             default:
