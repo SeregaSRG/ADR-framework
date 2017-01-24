@@ -18,6 +18,7 @@ class Domain_User {
 
     function register() {
         global $pdo;
+        $result = [];
 
         $name			= Parameters::Get('name');
         $surname		= Parameters::Get('surname');
@@ -45,19 +46,22 @@ class Domain_User {
                 ':password_hash' => $password_hash
             ]);
             if ($addUserQuery){
-                $this->isRegistered = TRUE;
-                $this->registeredCode = 100;
+                $result['isRegistered'] = TRUE;
+                $result['registeredCode'] = 100;
             } else {
-                $this->isRegistered = TRUE;
-                $this->registeredCode = -2;
+                $result['isRegistered'] = TRUE;
+                $result['registeredCode'] = -2;
             }
         } else {
-            $this->isRegistered = FALSE;
-            $this->registeredCode = 101;
+            $result['isRegistered'] = FALSE;
+            $result['registeredCode'] = 101;
         }
+
+        return $result;
     }
 
     function login() {
+        $result = [];
         $password   = Parameters::Get('password');
         $phone      = Parameters::Get('phone');
 
@@ -74,28 +78,32 @@ class Domain_User {
 
                 Token::insert($_SESSION['now_user'][id], $_SESSION['now_user'][token], $_SESSION['now_user'][ip], $_SESSION['now_user'][user_agent]);
 
-                $this->isLogged = TRUE;
-                $this->loginCode = 200;
+                $result['isLogged'] = true;
+                $result['loginCode'] = 200;
             } else {
-                $this->isLogged = FALSE;
-                $this->loginCode = 202;
+                $result['isLogged'] = false;
+                $result['loginCode'] = 202;
             }
         } else {
-            $this->isLogged = FALSE;
-            $this->loginCode = 201;
+            $result['isLogged'] = false;
+            $result['loginCode'] = 201;
         }
+        return $result;
     }
 
     function checkLogin() {
+        $result = [];
         $token = Parameters::Get('token');
         
         $this->isChecked = Token::checkToken($token, $_SERVER['HTTP_USER_AGENT']);
 
         if ($this->isChecked) {
-            $this->checkedCode = '300';
+            $result['checkedCode'] = '300';
         } else {
-            $this->checkedCode = '301';
+            $result['checkedCode'] = '301';
         }
+
+        return $result;
     }
 
     function checkPassword($password) {
@@ -107,6 +115,25 @@ class Domain_User {
     }
 
     function getUserInfo($phone) {
+        global $pdo;
+
+        $userInfoQuery = $pdo->prepare(
+            "SELECT * FROM `clients` WHERE phone = :phone"
+        );
+
+        $userInfoQuery->execute([
+            ':phone' => $phone
+        ]);
+
+        // Возвращает объект или false
+        if ($userInfoQuery->rowCount()){
+            return $userInfoQuery->fetch();
+        } else {
+            return FALSE;
+        }
+    }
+
+    function getUserInfoByToken($token) {
         global $pdo;
 
         $userInfoQuery = $pdo->prepare(

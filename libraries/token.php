@@ -1,4 +1,4 @@
-<?php
+e<?php
 class Token {
     static function generate() {
         return hash('sha512', uniqid(rand(), true));
@@ -63,7 +63,7 @@ class Token {
             ':token' => $token
         ]);
     }
-    /*
+    
     static function getId ($token){
         global $mysqli;
         $QueryByToken = $mysqli->query("SELECT * FROM `tokens` WHERE token='".htmlspecialchars($token, ENT_QUOTES)."' AND closed='0'");
@@ -75,6 +75,7 @@ class Token {
         return $byTokenObj->user_id;
     }
     
+    /*
     static function isClosed($token) {
         global $mysqli;
         $QueryByToken = $mysqli->query("SELECT * FROM `tokens` WHERE token='".htmlspecialchars($token, ENT_QUOTES)."'");

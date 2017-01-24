@@ -7,15 +7,15 @@ class Action_User extends Action {
     }
 
     function register() {
-        $this->domain->register();
+        $result = $this->domain->register();
 
-        if ($this->domain->isRegistered) {
+        if ($result['isRegistered']) {
             Responder::send([
-                'code' => $this->domain->registeredCode
+                'code' => $result['registeredCode']
             ]);
         } else {
             Responder::error(
-                $this->domain->registeredCode
+                $result['registeredCode']
             );
             session_destroy();
         }
@@ -24,9 +24,9 @@ class Action_User extends Action {
     }
 
     function login() {
-        $this->domain->login();
+        $result = $this->domain->login();
 
-        if ($this->domain->isLogged) {
+        if ($result[isLogged]) {
             Responder::send([
                 'token' => $_SESSION['now_user'][token],
                 'name'  => $this->domain->user->name,
@@ -35,7 +35,7 @@ class Action_User extends Action {
             ]);
         } else {
             Responder::error(
-                $this->domain->loggedCode
+                $result[loggedCode]
             );
             session_destroy();
         }
@@ -44,15 +44,15 @@ class Action_User extends Action {
     }
 
     function checkLogin() {
-        $this->domain->checkLogin();
+        $result = $this->domain->checkLogin();
             
         if ($this->domain->isChecked) {
             Responder::send([
-                'code' => $this->domain->checkedCode
+                'code' => $result['checkedCode']
             ]);
         } else {
             Responder::error([
-                'code' => $this->domain->checkedCode
+                'code' => $result['checkedCode']
             ]);
             session_destroy();
         }

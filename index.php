@@ -17,4 +17,3 @@ require_once HOME_DIR.'/application/core/responder.php';
 $pdo = Database::connect();
 
 Route::start();
-
